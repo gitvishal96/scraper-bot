@@ -7,11 +7,9 @@ import time
 import os
 import undetected_chromedriver as uc
 
-# options = Options()
-# options.headless = True  
 
 # Specify the path to Chromedriver if it's not on PATH
-webdriver_service = Service(executable_path='/path/to/chromedriver')  # Replace with your driver path, if not on PATH
+# webdriver_service = Service(executable_path='/path/to/chromedriver')  # Replace with your driver path, if not on PATH
 webdriver_service = uc.Chrome(headless=True)
 url = " "
 
@@ -19,7 +17,6 @@ def scrape_with_retry(url, max_attempts=3):
     attempts = 0
     while attempts < max_attempts:
         try:
-            # driver = webdriver.Chrome(service=webdriver_service)
             driver = uc.Chrome(headless=True)
             driver.get(url)
             time.sleep(3)  # Wait for JavaScript to load
